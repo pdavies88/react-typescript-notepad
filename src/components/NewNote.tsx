@@ -1,12 +1,12 @@
 import NoteForm from "./NoteForm";
 
-const NewNote = () => {
+function NewNote() {
   return (
     <>
       <div>New Note</div>
       <NoteForm />
     </>
   );
-};
+}
 
 export default NewNote;
