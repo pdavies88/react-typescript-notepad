@@ -1,28 +1,34 @@
 module.exports = {
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  plugins: ["prettier", "react", "react-hooks", "@typescript-eslint"],
+  rules: {
+    eqeqeq: "warn",
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    // if you use React 17+; otherwise, turn this on
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+  },
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   env: {
     browser: true,
-    es2021: true,
+    node: true,
+    es6: true,
+    jest: true,
   },
-  extends: [
-    "airbnb",
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-  ],
-  overrides: [],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: "./tsconfig.json",
-  },
-  plugins: ["react", "@typescript-eslint", "prettier"],
-  rules: {
-    semi: ["error", "always"],
-    quotes: ["warn", "double"],
-    "@typescript-eslint/quotes": ["warn", "double"],
-    "react/react-in-jsx-scope": 0,
-  },
+  ignorePatterns: ["node_modules", "build", "dist", "public"],
 };
