@@ -1,11 +1,23 @@
 module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
   ],
-  plugins: ["prettier", "react", "react-hooks", "@typescript-eslint"],
+  overrides: [],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
+  },
+  plugins: ["react", "react-hooks", "@typescript-eslint", "prettier"],
   rules: {
     eqeqeq: "warn",
     "no-console": "warn",
@@ -17,18 +29,4 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
   },
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-    jest: true,
-  },
-  ignorePatterns: ["node_modules", "build", "dist", "public"],
 };
